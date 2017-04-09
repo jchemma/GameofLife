@@ -286,6 +286,7 @@
       this.helpers.registerEvent(document.getElementById('buttonStep'), 'click', this.handlers.buttons.step, false);
       this.helpers.registerEvent(document.getElementById('buttonClear'), 'click', this.handlers.buttons.clear, false);
       this.helpers.registerEvent(document.getElementById('buttonExport'), 'click', this.handlers.buttons.export_, false);
+	  this.helpers.registerEvent(document.getElementById('buttonIncrement'), 'click', this.handlers.buttons.increment, false);
 
       // Layout
       this.helpers.registerEvent(document.getElementById('buttonTrail'), 'click', this.handlers.buttons.trail, false);
@@ -371,19 +372,13 @@
     },
 
 
-    /** ****************************************************************************************************************************
-     * Event Handerls
-     */
+    /*******************************************************************************************************************************/
     handlers : {
 
       mouseDown : false,
       lastX : 0,
       lastY : 0,
 
-
-      /**
-       *
-       */
       canvasMouseDown : function(event) {
         var position = GOL.helpers.mousePosition(event);
         GOL.canvas.switchCell(position[0], position[1]);
@@ -392,18 +387,10 @@
         GOL.handlers.mouseDown = true;
       },
 
-
-      /**
-       *
-       */
       canvasMouseUp : function() {
         GOL.handlers.mouseDown = false;
       },
 
-
-      /**
-       *
-       */
       canvasMouseMove : function(event) {
         if (GOL.handlers.mouseDown) {
           var position = GOL.helpers.mousePosition(event);
@@ -415,10 +402,6 @@
         }
       },
 
-
-      /**
-       *
-       */
       keyboard : function(e) {
         var event = e;
         if (!event) {
@@ -431,7 +414,9 @@
           GOL.handlers.buttons.run();
         } else if (event.keyCode === 83 ) { // Key: S
           GOL.handlers.buttons.step();
-        }
+        } else if (event.keyCode === 71 ) {	// Key: G
+		  GOL.handlers.buttons.step();
+		}
       },
 
 
@@ -448,11 +433,20 @@
             GOL.nextStep();
             document.getElementById('buttonRun').value = 'Stop';
           } else {
-            document.getElementById('buttonRun').value = 'Run';
+            document.getElementById('buttonRun').value = 'Start';
           }
         },
-
-
+		/**
+		 * Button Handler - Next 23 Steps
+		 */
+		increment : function() {
+			for(var i = 0; i<23; i++){
+				if(!GOL.running){
+					GOL.nextStep();
+				}
+			}
+		},
+		
         /**
          * Button Handler - Next Step - One Step only
          */
@@ -490,10 +484,6 @@
           }
         },
 
-
-        /**
-         *
-         */
         colors : function() {
           GOL.colors.current = (GOL.colors.current + 1) % GOL.colors.schemes.length;
           GOL.element.messages.layout.innerHTML = 'Color Scheme #' + (GOL.colors.current + 1);
@@ -503,11 +493,7 @@
             GOL.canvas.drawWorld(); // Force complete redraw
           }
         },
-
-
-        /**
-         *
-         */
+ 
         grid : function() {
           GOL.grid.current = (GOL.grid.current + 1) % GOL.grid.schemes.length;
           GOL.element.messages.layout.innerHTML = 'Grid Scheme #' + (GOL.grid.current + 1);
