@@ -461,7 +461,7 @@
             GOL.nextStep();
           }
         },
-
+		
 
         /**
          * Button Handler - Clear World
