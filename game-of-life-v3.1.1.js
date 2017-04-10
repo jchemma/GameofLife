@@ -1,11 +1,3 @@
-/*jslint onevar: true, undef: false, nomen: true, eqeqeq: true, plusplus: false, bitwise: true, regexp: true, newcap: true, immed: true  */
-
-/**
- * Game of Life - JS & CSS
- * http://pmav.eu
- * 04/Sep/2010
- */
-
 (function () {
 
   var GOL = {
@@ -45,7 +37,8 @@
 
     // Initial state
     initialState : '[{"39":[110]},{"40":[112]},{"41":[109,110,113,114,115]}]',
-
+	//initialState : '[{},{},{}]',
+	
     // Trail state
     trail : {
       current: true,
@@ -91,14 +84,14 @@
       },
 
       {
-        columns : 300,
-        rows : 144,
+        columns : 20, //300,
+        rows : 86, //144,
         cellSize : 2
       },
 
       {
-        columns : 450,
-        rows : 216,
+        columns : 300, //450,
+        rows : 86, //216,
         cellSize : 1
       }
       ]
@@ -113,9 +106,11 @@
       schemes : [
       {
         dead : '#FFFFFF',
-        trail : ['#B5ECA2'],
-        alive : ['#9898FF', '#8585FF', '#7272FF', '#5F5FFF', '#4C4CFF', '#3939FF', '#2626FF', '#1313FF', '#0000FF', '#1313FF', '#2626FF', '#3939FF', '#4C4CFF', '#5F5FFF', '#7272FF', '#8585FF']
-      },
+        //trail : ['#B5ECA2'],
+		trail : ['#111111'],
+        alive : ['#ed4bd2', '#8585FF', '#7272FF', '#5F5FFF', '#4C4CFF', '#3939FF', '#2626FF', '#1313FF', '#0000FF', '#1313FF', '#2626FF', '#3939FF', '#4C4CFF', '#5F5FFF', '#7272FF', '#8585FF']
+		// #9898FF
+	  },
 
       {
         dead : '#FFFFFF',
@@ -964,8 +959,6 @@
        *
        */
       mousePosition : function (e) {
-        // http://www.malleus.de/FAQ/getImgMousePos.html
-        // http://www.quirksmode.org/js/events_properties.html#position
         var event, x, y, domObject, posx = 0, posy = 0, top = 0, left = 0, cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize + 1;
 
         event = e;
