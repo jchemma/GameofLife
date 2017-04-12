@@ -1,7 +1,13 @@
 body{
+	background-image: url("download.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
 	margin-left: 0%;
 	text-align: center;
-	background-color: red;
+}
+
+button {
+	font-size: 50px;
 }
 
 .board {
@@ -13,7 +19,13 @@ body{
 	width: 30%;
 }
 
+.controls 
+
 input {
 	width: 30%;
+}
+
+.box {
+	font-size: 50px;
 }
 
