@@ -2,7 +2,6 @@
 <html>
   <head>
     <script src="json-sans-eval.js"></script>
-    <script src="css-browser-selector.js"></script>
     <script src="game-of-life-v3.1.1.js"></script>
     
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -15,7 +14,7 @@
     <div class="board">	  
       <canvas id="canvas" width="901" height="433"></canvas>
       <div class="box">
-        <p class="info"><abbr title="Current Generation">Generation</abbr>: <span id="generation"></span> | 
+        <p class="info"><abbr title="Current Generation">Generation</abbr>: <span id="generation"></span><br> 
 		<abbr title="Number of live cells">Live cells</abbr>: <span id="livecells"></span> </p>
           <span id="hint"></span> 
       </div>
@@ -25,8 +24,11 @@
 		  <input type="button" value="Start" id="buttonRun"/><br>
 		  <input type="button" value="Increment" id="buttonStep"/><br>
 		  <input type="button" value="Increment 23" id="buttonIncrement" /><br>
-		  <input type="button" value="Reset" id="buttonClear" />
-		
+		  <input type="button" value="Reset" id="buttonClear" /><br>
+		  <a href="?autoplay=0&amp;trail=0&amp;grid=1&amp;colors=1&amp;zoom=1&amp;s=%5B{%228%22:%5B50,60,70%5D},{%229%22:%5B50,60,70%5D},{%2210%22:%5B50,60,70%5D}%5D" >Blinker</a><br>
+		  <a href="?autoplay=0&amp;trail=0&amp;grid=1&amp;colors=1&amp;zoom=1&amp;s=%5B{%228%22:%5B60,61,115,116%5D},{%229%22:%5B59,62,114,117%5D},{%2210%22:%5B60,61,115,116%5D}%5D" >Bee Hive</a><br>
+		  <a href="?autoplay=0&amp;trail=0&amp;grid=1&amp;colors=1&amp;zoom=1&amp;s=%5B{%228%22:%5B60,61%5D},{%229%22:%5B59,62%5D},{%2210%22:%5B60,62%5D},{%2211%22:%5B61%5D},{%2215%22:%5B60,61%5D},{%2216%22:%5B59,62%5D},{%2217%22:%5B60,62%5D},{%2218%22:%5B61%5D}%5D" >Loaf</a><br>
+		  
 		</form>
     </div>
   </body>
